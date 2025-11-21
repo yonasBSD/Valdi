@@ -6,7 +6,7 @@
 //
 
 #import "valdi/ios/NativeModules/Drawing/SCValdiDrawingModuleFactory.h"
-#import "valdi/ios/NativeModules/Drawing/SCValdiDrawingModule.h"
+#import "SCCDrawing/SCValdiDrawingModule.h"
 
 #import "valdi/ios/Text/NSAttributedString+Valdi.h"
 #import "valdi/ios/Text/SCValdiFont.h"
@@ -113,7 +113,7 @@
     return SCValdiDrawingModuleMarshall(marshaller, self);
 }
 
-- (id<SCValdiDrawingFont> _Nullable)getFontWithSpecs:(SCValdiDrawingFontSpecs * _Nonnull)specs
+- (id<SCValdiDrawingFont> _Nonnull)getFontWithSpecs:(SCValdiDrawingFontSpecs * _Nonnull)specs
 {
     SCValdiFont *font = [SCValdiFont fontFromValdiAttribute:specs.font fontManager:_fontManager];
 
@@ -142,9 +142,3 @@
 }
 
 @end
-
-/**
- * Marshall the instance into the given SCValdiMarshaller.
- */
-FOUNDATION_EXPORT NSInteger SCValdiDrawingModuleMarshall(SCValdiMarshallerRef _Nonnull marshaller,
-        id<SCValdiDrawingModule> _Nonnull instance);
